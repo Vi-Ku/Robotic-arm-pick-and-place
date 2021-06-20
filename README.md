@@ -298,7 +298,7 @@ Now we substitute the roll, yaw and pitch in the correction matrix
 ROT_EE = ROT_EE.subs({'r': roll, 'p': pitch, 'y': yaw})
 ```
 The equation to get the position of the wrist is:
-<img src = "./images/wc.JPG">
+<img src = "./images/WC.JPG">
 ```python
 wc = P - 0.303*(ROT_EE[:,2]) #dG = 0.303
 ```
