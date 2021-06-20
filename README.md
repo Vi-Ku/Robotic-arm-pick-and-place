@@ -378,7 +378,7 @@ The output of the provided test cases are attached below:
 * Optimize the code to reduce run time(For eg, I removed the simplify function wherever it wasn't needed)
 * Set the demo value to "false" in the `inverse_kinematics.launch`  
 
- To run your own Inverse Kinematics code change the **demo** flag described above to _"false"_ and to run the simulation(once the project has successfully loaded) by:
+ To run the simulation(once the project has successfully loaded) by:
 ```sh
 $ cd ~/catkin_ws/src/Robotic-arm-pick-and-place/kuka_arm/scripts
 $ ./safe_spawner.sh
