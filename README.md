@@ -391,5 +391,5 @@ $ rosrun kuka_arm IK_server.py
 
 ## Please find attached the video of a successful Pick & Place cycle
 
-[![test video](./images/Thumbnail.JPG)](https://youtu.be/4V9RBBXNDYM)
+[![test video](./images/Thumbnail.JPG)]()
 
