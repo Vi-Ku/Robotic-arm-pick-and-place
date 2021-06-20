@@ -34,8 +34,6 @@ $ cd ~/catkin_ws/src
 $ git clone https://github.com/vi-ku/Robotic-arm-pick-and-place.git
 ```  
 Now we have to install missing dependencies using the  `$ rosdep install` command:  
-$ git clone https://github.com/udacity/RoboND-Kinematics-Project.git
-
 Now from a terminal window:
 
 ```sh
@@ -43,16 +41,13 @@ $ cd ~/catkin_ws
 $ rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y
 ```  
 Next we should change the permissions of script files to turn them executable:  
+
 ```sh
 $ cd ~/catkin_ws/src/Robotic-arm-pick-and-place/kuka_arm/scripts
 $ sudo chmod u+x target_spawn.py
 $ sudo chmod u+x IK_server.py
 $ sudo chmod u+x safe_spawner.sh
 $ sudo chmod u+x install.sh
-$ cd ~/catkin_ws/src/RoboND-Kinematics-Project/kuka_arm/scripts
-$ sudo chmod +x target_spawn.py
-$ sudo chmod +x IK_server.py
-$ sudo chmod +x safe_spawner.sh
 ```
 Now we have to build the project
 Build the project:
@@ -61,6 +56,7 @@ $ cd ~/catkin_ws
 $ catkin_make
 ```  
 Since the pick and place simulator spins up different nodes in separate terminals, you need to add the following to your .bashrc file for auto-sourcing:  
+
 ```sh
 $ source ~/catkin_ws/devel/setup.bash
 ```
@@ -75,7 +71,7 @@ For demo mode make sure the **demo** flag is set to _"true"_ in `inverse_kinemat
 
 In addition, you can also control the spawn location of the target object in the shelf. To do this, modify the **spawn_location** argument in `target_description.launch` file under /Robotic-arm-pick-and-place/kuka_arm/launch. 0-9 are valid values for spawn_location with 0 being random mode.
 
-You can launch the project by
+You can launch the project by:
 ```sh
 $ cd ~/catkin_ws/src/Robotic-arm-pick-and-place/kuka_arm/scripts
 $ ./safe_spawner.sh
@@ -215,6 +211,7 @@ T5_6 = trans(alpha5, a5, d6, q6).subs(DH_Table)
 T6_7 = trans(alpha6, a6, d7, q7).subs(DH_Table)
 ```
 We multiply the individual matrices to get the homogeneous transform matrix from base_link to gripper_link
+
 ```python
 T0_3=T0_1*T1_2*T2_3
 T0_7=T0_3*T3_4*T4_5*T5_6*T6_7
@@ -224,15 +221,15 @@ T0_7=T0_3*T3_4*T4_5*T5_6*T6_7
 We can check this matrix with the help of `forward_kinematics.launch` file. We can compare the values of the matrix with the values we get in RViZ to see how accurate the values are  
 
 <img src = "./images/Test Case RViZ.JPG">
-For demo mode make sure the **demo** flag is set to _"true"_ in `inverse_kinematics.launch` file under /RoboND-Kinematics-Project/kuka_arm/launch
 
-                                 Forward Transformation Matrix in Rviv.
-In addition, you can also control the spawn location of the target object in the shelf. To do this, modify the **spawn_location** argument in `target_description.launch` file under /RoboND-Kinematics-Project/kuka_arm/launch. 0-9 are valid values for spawn_location with 0 being random mode.
+
+                                       Forward Transformation Matrix in Rviv.
 
 &nbsp;
+
 <img src = "./images/Test Case python.jpg"> 
 
-                                 Forward Kinemtics Matric calculated.
+                                       Forward Kinemtics Matric calculated.
 
 &nbsp;
 ### 3. Decoupling Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; and deriving the equations to calculate all individual joint angles.  
@@ -385,40 +382,20 @@ The output of the provided test cases are attached below:
 
  To run your own Inverse Kinematics code change the **demo** flag described above to _"false"_ and  install the required python-libraries by running
  
-You can launch the project by
 ```sh
 $ cd ~/catkin_ws/src/Robotic-arm-pick-and-place/kuka_arm/scripts
 $ ./install.sh
-$ cd ~/catkin_ws/src/RoboND-Kinematics-Project/kuka_arm/scripts
-$ ./safe_spawner.sh
 ```
 
- run your code (once the project has successfully loaded) by:
-If you are running in demo mode, this is all you need. To run your own Inverse Kinematics code change the **demo** flag described above to _"false"_ and run your code (once the project has successfully loaded) by:
+To run the simulation(once the project has successfully loaded) by:
 ```sh
 $ cd ~/catkin_ws/src/Robotic-arm-pick-and-place/kuka_arm/scripts
 $ ./safe_spawner.sh
 $ cd ~/catkin_ws/src/RoboND-Kinematics-Project/kuka_arm/scripts
 $ rosrun kuka_arm IK_server.py
 ```
-Once Gazebo and rviz are up and running, make sure you see following in the gazebo world:
-@ -398,7 +84,18 @@ Once Gazebo and rviz are up and running, make sure you see following in the gaze
-	
-	- Dropbox right next to the robot
-	
+
 Please find attached the video of a successful Pick & Place cycle
 
-[![test video](/images/Thumbnail.JPG)](https://youtu.be/4V9RBBXNDYM)
-If any of these items are missing, report as an issue.
+[![test video](./images/Thumbnail.JPG)](https://youtu.be/4V9RBBXNDYM)
 
-Once all these items are confirmed, open rviz window, hit Next button.
-
-To view the complete demo keep hitting Next after previous action is completed successfully. 
-
-Since debugging is enabled, you should be able to see diagnostic output on various terminals that have popped up.
-
-The demo ends when the robot arm reaches at the top of the drop location. 
-
-There is no loopback implemented yet, so you need to close all the terminal windows in order to restart.
-
-In case the demo fails, close all three terminal windows and rerun the script.
