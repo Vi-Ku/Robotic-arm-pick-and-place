@@ -235,11 +235,12 @@ We can check this matrix with the help of `forward_kinematics.launch` file. We c
 
 The matrix can be represented in the following way  
 
-<img src = "./images/mat.JPG">
+                                                                  <img src = "./images/mat.JPG">
 
 where l, m and n are orthonormal vectors representing the end-effector orientation along X, Y, Z axes of the local coordinate frame.  
 Since n is the vector along the z-axis of the gripper_link, we can derive the position of the wrist center in the following way:  
-<img src = "./images/wrist.JPG">
+
+                                                                  <img src = "./images/wrist.JPG">
 
 where,  
 p<sub>x</sub>, p<sub>y</sub>, p<sub>z</sub> = end-effector positions  
