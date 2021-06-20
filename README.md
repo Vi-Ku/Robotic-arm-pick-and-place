@@ -393,6 +393,5 @@ $ rosrun kuka_arm IK_server.py
 
 [![test video](./images/Thumbnail.JPG)]()
 
-[![Demo CountPages alpha](https://share.gifyoutube.com/KzB6Gb.gif)](https://www.youtube.com/watch?v=ek1j272iAmc)
 
 
