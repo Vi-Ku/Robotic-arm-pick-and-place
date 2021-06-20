@@ -222,7 +222,7 @@ We can check this matrix with the help of `forward_kinematics.launch` file. We c
                                  Forward Transformation Matrix in Rviv.
 
 &nbsp;
-<img src = "./images/Test Case python.PNG"> 
+<img src = "./images/Test Case python.JPG"> 
 
                                  Forward Kinemtics Matric calculated.
 
@@ -314,7 +314,7 @@ c = 1.25
 ```
 We can use cosine law to calculate the angles of the triangle(a,b and c)  
 
-<img src = "./images/Claw.png">  
+<img src = "./images/Claw.JPG">  
 
 ```python
 angle_a = acos((b**2 + c**2 - a**2) / (2 * b * c))
@@ -361,9 +361,9 @@ theta6 = atan2(-R3_6[1,1], R3_6[1,0])
 The calculation of the 6 joint angles from the end effector's pose and orientation completes the Inverse Kinematics Problem. 
 The output of the provided test cases are attached below:  
 
-<img src = "./images/TC1.PNG"> &nbsp;
+<img src = "./images/TC1.JPG"> &nbsp;
 
-<img src = "./images/TC2.PNG">  
+<img src = "./images/TC2.JPG">  
 
 > Here we  can clearly see that the time and error both are under permissible limit for path planning.
 
