@@ -33,8 +33,7 @@ Now that you have a workspace, clone or download this repo into the **src** dire
 $ cd ~/catkin_ws/src
 $ git clone https://github.com/vi-ku/Robotic-arm-pick-and-place.git
 ```  
-Now we have to install missing dependencies using the  `$ rosdep install` command:  
-Now from a terminal window:
+Now from a terminal window we have to install missing dependencies using the  `$ rosdep install` command:  
 
 ```sh
 $ cd ~/catkin_ws
@@ -174,9 +173,7 @@ DH_Table = {alpha0: 0, 	    a0: 0, 		d1: 0.75, 	q1: q1,
 		            alpha4: pi/2, 	a4: 0, 		d5: 0, 		q5: q5,
 		            alpha5: -pi/2., a5: 0, 		d6: 0, 		q6: q6,
 		            alpha6: 0, 	    a6: 0, 		d7: 0.303, 	q7: 0}
-Add following to your .bashrc file
 ```
-export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Kinematics-Project/kuka_arm/models
 
 
 ### 2. Creating individual transformation matrices about each joint and also a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) by using the DH table derived.  
@@ -325,9 +322,10 @@ We can use cosine law to calculate the angles of the triangle(a,b and c)
 angle_a = acos((b**2 + c**2 - a**2) / (2 * b * c))
 angle_b = acos((a**2 + c**2 - b**2) / (2 * a * c))
 angle_c = acos((a**2 + b**2 - c**2 ) / (2 * a * b))
+angle_x = atan2(wc[2]-0.75,sqrt(wc[0]**2+wc[1]**2)-0.35)
 ```  
-> angle_x=atan2(wc[2]-0.75,sqrt(wc[0]**2+wc[1]**2)-0.35)
-From the triangle, we can calculate θ2 and θ3  
+ 
+> From the triangle, we can calculate θ2 and θ3  
 ```python
 theta2 = pi/2 - angle_a - atan2(wc[2] - 0.75, sqrt(wc[0] * wc[0] + wc[1] * wc[1]) - 0.35)
 theta3 = pi/2 - angle_b - angle_x
@@ -380,14 +378,7 @@ The output of the provided test cases are attached below:
 * Optimize the code to reduce run time(For eg, I removed the simplify function wherever it wasn't needed)
 * Set the demo value to "false" in the `inverse_kinematics.launch`  
 
- To run your own Inverse Kinematics code change the **demo** flag described above to _"false"_ and  install the required python-libraries by running
- 
-```sh
-$ cd ~/catkin_ws/src/Robotic-arm-pick-and-place/kuka_arm/scripts
-$ ./install.sh
-```
-
-To run the simulation(once the project has successfully loaded) by:
+ To run your own Inverse Kinematics code change the **demo** flag described above to _"false"_ and to run the simulation(once the project has successfully loaded) by:
 ```sh
 $ cd ~/catkin_ws/src/Robotic-arm-pick-and-place/kuka_arm/scripts
 $ ./safe_spawner.sh
@@ -395,7 +386,10 @@ $ cd ~/catkin_ws/src/RoboND-Kinematics-Project/kuka_arm/scripts
 $ rosrun kuka_arm IK_server.py
 ```
 
-Please find attached the video of a successful Pick & Place cycle
+> Then after successfully loading the Rviz window, we have to press the  `continue/next`  button and it will proceed further automatically.
+
+
+## Please find attached the video of a successful Pick & Place cycle
 
 [![test video](./images/Thumbnail.JPG)](https://youtu.be/4V9RBBXNDYM)
 
